@@ -1,4 +1,13 @@
 namespace :magento do
+  desc "Clear the Magento Cache"
+  task :clear_cache do
+    on roles(:app) do
+      within release_path do
+        execute :php, "-r", "\"require_once('app/Mage.php'); Mage::app()->cleanCache(); \""
+      end
+    end
+  end
+
   namespace :maintenance do
     desc "Turn on maintenance mode by creating maintenance.flag file"
     task :on do
