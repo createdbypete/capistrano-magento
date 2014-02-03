@@ -67,6 +67,17 @@ namespace :magento do
       end
     end
   end
+
+  namespace :logs do
+    desc "Clean logs"
+    task :clean do
+      on roles(:db) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "log.php", "--", "clean"
+        end
+      end
+    end
+  end
 end
 
 namespace :load do
