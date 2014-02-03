@@ -18,4 +18,9 @@ namespace :magento do
       end
     end
   end
+namespace :load do
+  task :defaults do
+    set :linked_dirs, fetch(:linked_dirs, []).push("var", "media", "sitemaps")
+    set :linked_files, fetch(:linked_files, []).push("app/etc/local.xml")
+  end
 end
