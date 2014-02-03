@@ -56,6 +56,17 @@ namespace :magento do
       end
     end
   end
+
+  namespace :indexer do
+    desc "Reindex data by all indexers"
+    task :reindexall do
+      on roles(:db) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "indexer.php", "--", "reindexall"
+        end
+      end
+    end
+  end
 end
 
 namespace :load do
