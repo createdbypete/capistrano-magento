@@ -18,6 +18,46 @@ namespace :magento do
       end
     end
   end
+
+  namespace :compiler do
+    desc "Run compilation process and enable compiler include path"
+    task :compile do
+      on roles(:app) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "compiler.php", "--", "compile"
+        end
+      end
+    end
+
+    desc "Enable compiler include path"
+    task :enable do
+      on roles(:app) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "compiler.php", "--", "enable"
+        end
+      end
+    end
+
+    desc "Disable compiler include path"
+    task :disable do
+      on roles(:app) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "compiler.php", "--", "disable"
+        end
+      end
+    end
+
+    desc "Disable compiler include path and remove compiled files"
+    task :clear do
+      on roles(:app) do
+        within "#{release_path}/shell" do
+          execute :php, "-f", "compiler.php", "--", "clear"
+        end
+      end
+    end
+  end
+end
+
 namespace :load do
   task :defaults do
     set :linked_dirs, fetch(:linked_dirs, []).push("var", "media", "sitemaps")
