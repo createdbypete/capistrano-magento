@@ -1,6 +1,6 @@
 # Capistrano::Magento
 
-[Magento](http://magento.com) specific tasks and defaults for [Capistrano](https://github.com/capistrano/capistrano) deployment.
+[Magento](http://magento.com) specific tasks and defaults for [Capistrano 3](https://github.com/capistrano/capistrano) deployment.
 
 ## Installation
 
