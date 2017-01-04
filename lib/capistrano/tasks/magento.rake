@@ -44,7 +44,7 @@ namespace :magento do
     task :on do
       on roles(fetch(:magento_roles)) do
         within fetch(:magento_working_dir)  do
-          execute :touch, "#{release_path}/maintenance.flag"
+          execute :touch, "#{fetch(:magento_working_dir)}/maintenance.flag"
         end
       end
     end
@@ -53,7 +53,7 @@ namespace :magento do
     task :off do
       on roles(fetch(:magento_roles)) do
         within fetch(:magento_working_dir)  do
-          execute :rm, "-f", "#{release_path}/maintenance.flag"
+          execute :rm, "-f", "#{fetch(:magento_working_dir)}/maintenance.flag"
         end
       end
     end
@@ -72,7 +72,7 @@ namespace :magento do
     desc "Enable compiler include path"
     task :enable do
       on roles(fetch(:magento_roles)) do
-        within "#{release_path}/shell" do
+        within fetch(:magento_working_dir).join('shell') do
           execute :php, "-f", "compiler.php", "--", "enable"
         end
       end
