@@ -35,7 +35,10 @@ These are the available Magento specific tasks, most of these are shortcuts to t
 
     $ cap -T
     ...
-    cap magento:clear_cache            # Clear the Magento Cache
+    cap magento:cache:clear            # Clear the Magento Cache
+    cap magento:cache:flush            # Flush the Magento Cache
+    cap magento:cache:clean_merged_js_css # Clear the Magento Cache
+    cap magento:cache:clean_page_cache    # Clear the Magento Cache
     cap magento:compiler:clear         # Disable compiler include path and remove compiled files
     cap magento:compiler:compile       # Run compilation process and enable compiler include path
     cap magento:compiler:disable       # Disable compiler include path
