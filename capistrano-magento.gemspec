@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-magento"
-  gem.version       = "0.0.1"
+  gem.version       = "0.1.0"
   gem.authors       = ["Peter Rhoades"]
   gem.email         = ["createdbypete@gmail.com"]
   gem.description   = %q{Magento specific tasks for Capistrano}
